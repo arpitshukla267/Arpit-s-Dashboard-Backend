@@ -13,7 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // ✅ CORS setup
-const allowedOrigins = ["http://localhost:5173", "http://localhost:5174", "http://localhost:3000", "https://camperz-three.vercel.app/","https://arpit-s-portfolio-mu.vercel.app/", "https://arpit-s-dashboard.vercel.app/"];
+const allowedOrigins = ["http://localhost:5173", "http://localhost:5174", "http://localhost:3000", "https://camperz-three.vercel.app","https://arpit-s-portfolio-mu.vercel.app", "https://arpit-s-dashboard.vercel.app"];
 app.use(
   cors({
     origin: function (origin, callback) {
