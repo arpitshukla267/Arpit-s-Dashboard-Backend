@@ -38,7 +38,7 @@ export const toggleFav = async (req, res) => {
   }
 };
 
-// ✅ New delete controller
+// Delete controller
 export const deleteProject = async (req, res) => {
   try {
     const { id } = req.params;
@@ -51,6 +51,19 @@ export const deleteProject = async (req, res) => {
     res.json({ message: "Project deleted successfully", id });
   } catch (err) {
     console.error("❌ Error deleting project:", err.message);
+    res.status(500).json({ error: err.message });
+  }
+};
+
+// Edit controller
+export const updateProject = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updated = await Project.findByIdAndUpdate(id, req.body, { new: true });
+    if (!updated) return res.status(404).json({ message: "Project not found" });
+    res.json(updated);
+  } catch (err) {
+    console.error("❌ Error updating project:", err.message);
     res.status(500).json({ error: err.message });
   }
 };

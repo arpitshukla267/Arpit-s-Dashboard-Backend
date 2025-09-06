@@ -4,7 +4,8 @@ import {
   addProject,
   getAllProjects,
   toggleFav,
-  deleteProject, // ✅ import
+  deleteProject,
+  updateProject 
 } from "../controllers/projectController.js";
 
 const router = express.Router();
@@ -12,6 +13,7 @@ const router = express.Router();
 router.post("/", addProject);
 router.get("/", getAllProjects);
 router.patch("/:id/fav", toggleFav);
-router.delete("/:id", deleteProject); // ✅ new delete route
+router.delete("/:id", deleteProject); 
+router.put("/:id", updateProject); 
 
 export default router;
